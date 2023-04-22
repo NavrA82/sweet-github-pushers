@@ -26,10 +26,27 @@
 
 //3. //Напишіть цикл, який виведе в консоль усі парні числа від max до min включно по зменшенню
 
-const min = 3;
-const max = 12;
-for (let index = max; index >= min; index -= 1) {
+// const min = 3;
+// const max = 12;
+// for (let index = max; index >= min; index -= 1) {
     
-    if (!(index %2))
-    {console.log(index);}
+//     if (!(index %2))
+//     {console.log(index);}
+// }
+
+//4. За допомогою циклу for знайдіть добуток (результат множення) усіх парних чисел у проміжку від min до max включно
+
+const min = 2;
+const max = 10;
+let total = 1;
+for (let i = min; i <= max; i += 1){
+    if (!(i % 2)) {
+        total *= i;
+    }    
 }
+console.log(total);
+
+
+//    if (i % 2 !== 0)
+
+
