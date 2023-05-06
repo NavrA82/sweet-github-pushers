@@ -190,20 +190,51 @@
 //яка приймає масив об'єктів і рядок з назвою каменю.
 //Функція обчислює і повертає загальну вартість каменів з таким іменем
 
-const stones = [
-  { name: "emerald", price: 1300, quantity: 4 },
-  { name: "diamond", price: 2700, quantity: 6 },
-  { name: "sapphire", price: 400, quantity: 7 },
-  { name: "rubble", price: 150, quantity: 100 },
-];
+// const stones = [
+//   { name: "emerald", price: 1300, quantity: 4 },
+//   { name: "diamond", price: 2700, quantity: 6 },
+//   { name: "sapphire", price: 400, quantity: 7 },
+//   { name: "rubble", price: 150, quantity: 100 },
+// ];
 
-function calcTotalPrice(stones, stonesName) {
-  let total = 0;
-  for (let stone of stones) {
-    if (stone.name === stonesName) {
-      total += stone.price * stone.quantity;
+// function calcTotalPrice(stones, stonesName) {
+//   let total = 0;
+//   for (let stone of stones) {
+//     if (stone.name === stonesName) {
+//       total += stone.price * stone.quantity;
+//     }
+//   }
+//   return total;
+// }
+// console.log(calcTotalPrice(stones, "emerald"));
+
+//4. Створіть об'єкт calculator з трьома методами
+//read(a, b) - приймає два аргумента та зберігає їх як властивості об'єкта під ключами prop1 та prop2
+//sum() перевіряє чи присутні  властивості prop1/prop2 та повертає їх суму, в противному випадку повертає null
+//mult() перевіряє чи присутні  властивості prop1/prop2 та повертає їх добуток, в противному випадку повертає null
+// Не забудьте, що математичні оператори працюють коректно тільки з числовими значеннями
+
+const calculator = {
+  read(a, b) {
+    this.prop1 = Number(a);
+    this.prop2 = Number(b);
+  },
+  sum() {
+    if (isNaN(this.prop1) || isNaN(this.prop2)) {
+      console.log("invalid value");
+      return null;
     }
-  }
-  return total;
-}
-console.log(calcTotalPrice(stones, "emerald"));
+    return this.prop1 + this.prop2;
+  },
+  mult() {
+    if (isNaN(this.prop1) || isNaN(this.prop2)) {
+      console.log("invalid value");
+      return null;
+    }
+    return this.prop1 * this.prop2;
+  },
+};
+
+calculator.read(2, 4);
+console.log(calculator.sum());
+console.log(calculator.mult());
