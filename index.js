@@ -214,27 +214,38 @@
 //mult() перевіряє чи присутні  властивості prop1/prop2 та повертає їх добуток, в противному випадку повертає null
 // Не забудьте, що математичні оператори працюють коректно тільки з числовими значеннями
 
-const calculator = {
-  read(a, b) {
-    this.prop1 = Number(a);
-    this.prop2 = Number(b);
-  },
-  sum() {
-    if (isNaN(this.prop1) || isNaN(this.prop2)) {
-      console.log("invalid value");
-      return null;
-    }
-    return this.prop1 + this.prop2;
-  },
-  mult() {
-    if (isNaN(this.prop1) || isNaN(this.prop2)) {
-      console.log("invalid value");
-      return null;
-    }
-    return this.prop1 * this.prop2;
-  },
-};
+// const calculator = {
+//   read(a, b) {
+//     this.prop1 = Number(a);
+//     this.prop2 = Number(b);
+//   },
+//   sum() {
+//     if (isNaN(this.prop1) || isNaN(this.prop2)) {
+//       console.log("invalid value");
+//       return null;
+//     }
+//     return this.prop1 + this.prop2;
+//   },
+//   mult() {
+//     if (isNaN(this.prop1) || isNaN(this.prop2)) {
+//       console.log("invalid value");
+//       return null;
+//     }
+//     return this.prop1 * this.prop2;
+//   },
+// };
 
-calculator.read(2, 4);
-console.log(calculator.sum());
-console.log(calculator.mult());
+// calculator.read(2, 4);
+// console.log(calculator.sum());
+// console.log(calculator.mult());
+
+//5. Напишіть функцію updateObject, яка приймає об'єкт та ключ
+//і повертає новий об'єкт без вказаної властивості
+//Очікуваний результат ({ a: 1, b: 2, c: 3 }, 'b') => {a: 1, c: 3}
+
+function updateObject(object, key) {
+  const newObject = {...object};
+  delete newObject[key];
+  return newObject;
+}
+console.log(updateObject({ a: 1, b: 2, c: 3 }, "b"));
