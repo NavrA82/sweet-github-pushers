@@ -140,3 +140,31 @@
 
 // const arr7 = [1, 4, 6, "color", 324, 232, "list", 11, 9, "dream", 34, 0, -30];
 // const arr8 = [6, "dream", -30, 10, 9, 1, 324, 34, "color", 4, 232, 0, "list"];
+
+//1. Напишіть скрипт, який для об'єкта user, послідовно:
+//1 додасть властивість mood зі значенням 'happy'
+//2 замінить значення властивості hobby на 'skydiving'
+//3 замінить значення властивості premium на false
+//4 використовуючи Object.keys() и for...of, виведе у консоль зміст об'єкта users у форматі:
+//name: John
+//"age: 20"
+//"hobby: skydiving"
+//"premium: false"
+//"mood: happy"
+
+const user = {
+  name: "John",
+  age: 20,
+  hobby: "tenis",
+  premium: true,
+};
+
+user.mood = "happy";
+user.hobby = "skydiving";
+user.premium = false;
+
+const keys = Object.keys(user);
+
+for (let key of keys) {
+  console.log(`${key}: ${user[key]}`);
+}
