@@ -244,8 +244,73 @@
 //Очікуваний результат ({ a: 1, b: 2, c: 3 }, 'b') => {a: 1, c: 3}
 
 function updateObject(object, key) {
-  const newObject = {...object};
+  const newObject = { ...object };
   delete newObject[key];
   return newObject;
 }
 console.log(updateObject({ a: 1, b: 2, c: 3 }, "b"));
+
+//6. Напишіть функцію updateObject, яка приймає об'єкт та перелік ключів
+//і повертає новий об'єкт без вказаних властивостей
+//Очікуваний результат ({ a: 1, b: 2, c: 3 }, 'b', 'c') => {a: 1}
+
+function updateObject(object, ...keys) {
+  const newObject = { ...object };
+  for (let key of keys) {
+    delete newObject[key];
+  }
+  return newObject;
+}
+console.log(updateObject({ a: 1, b: 2, c: 3 }, "b", "c"));
+
+// 8. Напиши скрипт керування особистим кабінетом інтернет банку.
+//Є об'єкт account, в якому необхідно реалізувати методи для роботи з балансом та історією трансакцій
+//Типів трансакцій усього два. Можна поповнити рахунок або списати з нього гроші.
+//
+// const TYPES_TRANSACTION = {
+//   DEPOSIT: 'deposit',
+//   WITHDRAW: 'withdraw',
+// }
+//Кожна трансакція має мати властивості: id, type, amount.
+
+// {
+// // const account = {
+//поточний баланс рахунку
+// balance: 0,
+//Історія трансакцій
+// transactions: [],
+//Метод приймає суму та тип трансакції
+//створює об'єкт трансакції за зразком {id, type, amount}
+//додає його у масив трансакцій
+//в залежності від типу трансакції викликає методи, які відповідають за збільшення/зменшення балансу
+// createTransaction(type, amount) {
+// },
+//Метод приймає суму трансакції і відповідає за додавання суми до балансу.
+// deposit(amount) {
+// },
+//Метод приймає суму трансакції і відповідає за віднімання суми до балансу.
+//Якщо amount більше ніж поточний баланс, виводимо повідомлення в консоль про те, що недостатньо коштів на рахунку [You don't have enough funds in your account] і повертаємо null
+// withdraw(amount) {
+// },
+//Метод повертає поточний баланс
+// getBalance() {
+
+// },
+//Метод шукає та повертає об'єкт трансакції по id
+// getTransactionDetails(idForSearch) {
+
+// },
+//Метод повертає загальну суму трансакції певного типу із всієї історії трансакцій
+// getTotalSumByType(type) {
+
+//     },
+//   }
+//   account.createTransaction('deposit', 120)
+//   account.createTransaction('deposit', 100)
+//   account.createTransaction('withdraw', 200)
+
+//   console.log('balance', account.balance)
+//   console.log('transactions', account.transactions)
+//   console.log('getTotalSumByType', account.getTotalSumByType('withdraw'))
+//   console.log('getTransactionDetails', account.getTransactionDetails(2))
+// }
