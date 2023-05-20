@@ -353,9 +353,25 @@
 //   id: Date.now(),
 //  }
 //  callback(newProduct);
-// }; 
+// };
 
 // function showProduct(product) {
 //  console.log(product);
 // };
 // makeProduct("Banana", 65, showProduct);
+
+//  Напишіть функцію makeShef(shefName), яка повертає функцію
+//makeDish(dish), яка памятає ім'я шефа під час її виклику
+//Функція makeDish має логіровать "<shef> is cooking <dish>"
+
+function makeShef(shefName) {
+  return function makeDish(dish) {
+    console.log(`${shefName} is cooking ${dish}`);
+  };
+}
+
+const shef1 = makeShef("Олег");
+shef1("борщ");
+shef1("вареники");
+const shef2 = makeShef("Ігор");
+shef2("шкварки");
