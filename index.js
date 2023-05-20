@@ -315,6 +315,8 @@
 //   console.log('getTransactionDetails', account.getTransactionDetails(2))
 // }
 
+//=========================ClassWork=======================//
+
 //Напишіть дві функції
 // letMeSeeYourName(callback) - запитує ім'я користувача
 //через prompt і викликає callback функцію
@@ -443,15 +445,71 @@
 
 // Добавь метод getInfo(), который возвращает строку:
 // `Пользователю ${} ${} лет и у него ${} публикаций.`
-const User = function ({ userName, age, numbersOfPost } = {}) {
-	this.userName = userName;
-	this.age = age;
-	this.numbersOfPost = numbersOfPost;
-	this.getInfo = function () {
-		console.log(
-			`Пользователю ${userName} ${age} лет и у него ${numbersOfPost} публикаций.`
-		);
-	};
-};
-const mike = new User({ userName: "Mike", age: 18, numbersOfPost: 25 });
-mike.getInfo();
+// const User = function ({ userName, age, numbersOfPost } = {}) {
+// 	this.userName = userName;
+// 	this.age = age;
+// 	this.numbersOfPost = numbersOfPost;
+// 	this.getInfo = function () {
+// 		console.log(
+// 			`Пользователю ${userName} ${age} лет и у него ${numbersOfPost} публикаций.`
+// 		);
+// 	};
+// };
+// const mike = new User({ userName: "Mike", age: 18, numbersOfPost: 25 });
+// mike.getInfo();
+
+//  Напишите функцию для хранения скидки.Функция возвращает
+//другую функцию, которая принимает сумму покупки
+//и возвращает финальную сумму с сохраненной скидкой.
+
+// function discountValue(discount) {
+//   return function totalPrice(price) {
+//     console.log(price - price * discount);
+//     return price - price * discount;
+//   };
+// }
+
+// const discount10 = discountValue(0.1);
+// discount10(500);
+
+// const discount20 = discountValue(0.2);
+// discount20(1000);
+
+//=========================HomeTasks=======================//
+
+// 10. Напиши функцию конструктор Storage который создаёт объекты
+//для управления складом товаров.
+//При вызове будет получать один агрумент - начальный массив товаров,
+//и записывать его в свойство items.
+//Добавь методы класса:
+//getItems() - возвращайте массив товаров
+//addItems(item) - получает новый товар и добавляет его к текущим
+//removeItem(item) - плучает товар и, если он есть, удаляет его из текущих
+
+// 11. Напиши класс Client котрорый создает объект
+//со свойствами login email
+//Объяви приватные свойства #login #email,
+//доступ к которым сделай через геттер и сеттер login email
+
+// 12. Напиши класс Notes который управляет коллекцией заметок в
+//свойстве items.
+//Заметка это объект со свойствами text priority
+//Добавь классу статическое свойство Priopity,
+//в котором будет храниться объект с приоритетами.
+//Добавь методы addNote(note), removeNote(text)
+//updatePriority(text, newPriority)
+
+// 13.
+// Создай класс для калькулятора, который имеет следующие методы:
+// метод number, который принимает начальное значение для последующих операций
+// метод getResult, который возвращает финальный результат всех операций, проведенных с числом
+// методы add, substruct, divide, multiply
+// объект класса принимает число и может проводить с ним
+// последовательные операции в виде цепочки
+
+//14.
+// Создать класс Worker у которого есть свойства name, age, salary.
+//У класса Worker есть метод getSalary.
+//Создать класс TopLevelWorker у которого есть свойство hierarchyLevel
+//и который наследует класс Worker, добавляя метод getHierarchyLevel
+//Реализовать задачу с помощью ES5 прототипов и ES6 классов
