@@ -336,3 +336,26 @@
 // }
 
 // letMeSeeYourName(greet);
+
+// Напишіть дві функції
+//makeProduct(name, price, callback) - приймає
+//ім'я та ціну товару, а також callback.
+//Функція створює об'єкт товару, додаючи йому унікальний
+//ідентіфікатор у властивість id та викликає callback
+//передаючи йому створений об'єкт.
+//showProduct(product) - коллбек, що приймає об'єкт
+//продукта і логірує його в консоль
+
+// function makeProduct(name, price, callback) {
+//  const newProduct = {
+//   name,
+//   price,
+//   id: Date.now(),
+//  }
+//  callback(newProduct);
+// }; 
+
+// function showProduct(product) {
+//  console.log(product);
+// };
+// makeProduct("Banana", 65, showProduct);
