@@ -243,25 +243,25 @@
 //і повертає новий об'єкт без вказаної властивості
 //Очікуваний результат ({ a: 1, b: 2, c: 3 }, 'b') => {a: 1, c: 3}
 
-function updateObject(object, key) {
-  const newObject = { ...object };
-  delete newObject[key];
-  return newObject;
-}
-console.log(updateObject({ a: 1, b: 2, c: 3 }, "b"));
+// function updateObject(object, key) {
+//   const newObject = { ...object };
+//   delete newObject[key];
+//   return newObject;
+// }
+// console.log(updateObject({ a: 1, b: 2, c: 3 }, "b"));
 
 //6. Напишіть функцію updateObject, яка приймає об'єкт та перелік ключів
 //і повертає новий об'єкт без вказаних властивостей
 //Очікуваний результат ({ a: 1, b: 2, c: 3 }, 'b', 'c') => {a: 1}
 
-function updateObject(object, ...keys) {
-  const newObject = { ...object };
-  for (let key of keys) {
-    delete newObject[key];
-  }
-  return newObject;
-}
-console.log(updateObject({ a: 1, b: 2, c: 3 }, "b", "c"));
+// function updateObject(object, ...keys) {
+//   const newObject = { ...object };
+//   for (let key of keys) {
+//     delete newObject[key];
+//   }
+//   return newObject;
+// }
+// console.log(updateObject({ a: 1, b: 2, c: 3 }, "b", "c"));
 
 // 8. Напиши скрипт керування особистим кабінетом інтернет банку.
 //Є об'єкт account, в якому необхідно реалізувати методи для роботи з балансом та історією трансакцій
@@ -314,3 +314,25 @@ console.log(updateObject({ a: 1, b: 2, c: 3 }, "b", "c"));
 //   console.log('getTotalSumByType', account.getTotalSumByType('withdraw'))
 //   console.log('getTransactionDetails', account.getTransactionDetails(2))
 // }
+
+//Напишіть дві функції
+// letMeSeeYourName(callback) - запитує ім'я користувача
+//через prompt і викликає callback функцію
+//greet(name) - це коллбек, яка приймає ім'я і логує в консолі
+//рядок "Hi, <name>"
+//Реалізуй перевірку, що prompt не пустий
+
+// function letMeSeeYourName(callback) {
+//   const message = prompt("Як тебе звуть?");
+//   if (message === null) {
+//     alert("Ви не ввели ім'я!");
+//     return;
+//   }
+//   greet(message);
+// }
+
+// function greet(name) {
+//   console.log(`Hi, ${name}`);
+// }
+
+// letMeSeeYourName(greet);
