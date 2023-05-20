@@ -364,14 +364,34 @@
 //makeDish(dish), яка памятає ім'я шефа під час її виклику
 //Функція makeDish має логіровать "<shef> is cooking <dish>"
 
-function makeShef(shefName) {
-  return function makeDish(dish) {
-    console.log(`${shefName} is cooking ${dish}`);
-  };
-}
+// function makeShef(shefName) {
+//   return function makeDish(dish) {
+//     console.log(`${shefName} is cooking ${dish}`);
+//   };
+// }
 
-const shef1 = makeShef("Олег");
-shef1("борщ");
-shef1("вареники");
-const shef2 = makeShef("Ігор");
-shef2("шкварки");
+// const shef1 = makeShef("Олег");
+// shef1("борщ");
+// shef1("вареники");
+// const shef2 = makeShef("Ігор");
+// shef2("шкварки");
+
+// Напишіть функцію makeCounter, яка повертає іншу
+//функцію, яка лічить і виводе в консоль кількість своїх викликів
+//
+
+function makeCounter() {
+  let total = 0;
+  return function getResult() {
+    total += 1
+    console.log(total)
+  }
+};
+const counter1 = makeCounter();
+counter1();
+counter1();
+counter1();
+counter1();
+counter1();
+counter1();
+counter1();
