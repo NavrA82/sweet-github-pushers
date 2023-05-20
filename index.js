@@ -380,18 +380,34 @@
 //функцію, яка лічить і виводе в консоль кількість своїх викликів
 //
 
-function makeCounter() {
-  let total = 0;
-  return function getResult() {
-    total += 1
-    console.log(total)
-  }
-};
-const counter1 = makeCounter();
-counter1();
-counter1();
-counter1();
-counter1();
-counter1();
-counter1();
-counter1();
+// function makeCounter() {
+//   let total = 0;
+//   return function getResult() {
+//     total += 1
+//     console.log(total)
+//   }
+// };
+// const counter1 = makeCounter();
+// counter1();
+// counter1();
+// counter1();
+// counter1();
+// counter1();
+// counter1();
+// counter1();
+
+// Напишите функцию savePassword(password) которая принимает
+//пароль и возвращает внутреннюю функцию, которая принимает
+//строку и возвращает буль true, если строка совпадает с сохраненным
+//паролем и false - если не совпадает
+
+// function savePassword(password) {
+//   return function checkPassword() {
+//     const ask = prompt("Enter your password");
+//     console.log(ask === password);
+//   };
+// }
+
+// const constValue = savePassword("qwerty");
+
+// constValue();
