@@ -411,3 +411,47 @@
 // const constValue = savePassword("qwerty");
 
 // constValue();
+
+// 4. Виправте помилки, щоб код працював
+// const product = {
+//     price: 5000,
+//     showPrice() {
+//         console.log(this.price)
+//     },
+// }
+// product.showPrice()
+
+// 5. Виправте код, щоб він працював
+// function callAction(action) {
+//     action()
+// }
+
+// const item = {
+//     getQuantity() {
+//         console.log(this.quantity)
+//     },
+//     quantity: 5,
+// }
+
+// callAction(item.getQuantity.bind(item));
+
+// 10. Напиши функцию конструктор User для создания пользователя со следующими свойствами
+// a. userName - имя, строка
+// b. age - возраст, число
+// c. numbersOfPost - количество постов, число
+// d. User ожидает 1 параметр - объект настроек с одноименными свойствами
+
+// Добавь метод getInfo(), который возвращает строку:
+// `Пользователю ${} ${} лет и у него ${} публикаций.`
+const User = function ({ userName, age, numbersOfPost } = {}) {
+	this.userName = userName;
+	this.age = age;
+	this.numbersOfPost = numbersOfPost;
+	this.getInfo = function () {
+		console.log(
+			`Пользователю ${userName} ${age} лет и у него ${numbersOfPost} публикаций.`
+		);
+	};
+};
+const mike = new User({ userName: "Mike", age: 18, numbersOfPost: 25 });
+mike.getInfo();
