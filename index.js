@@ -266,15 +266,16 @@
 // 8. Напиши скрипт керування особистим кабінетом інтернет банку.
 //Є об'єкт account, в якому необхідно реалізувати методи для роботи з балансом та історією трансакцій
 //Типів трансакцій усього два. Можна поповнити рахунок або списати з нього гроші.
-//
+
 // const TYPES_TRANSACTION = {
-//   DEPOSIT: 'deposit',
-//   WITHDRAW: 'withdraw',
-// }
+//   DEPOSIT: "deposit",
+//   WITHDRAW: "withdraw",
+// };
+
 //Кожна трансакція має мати властивості: id, type, amount.
 
 // {
-// // const account = {
+// const account = {
 //поточний баланс рахунку
 // balance: 0,
 //Історія трансакцій
@@ -284,35 +285,49 @@
 //додає його у масив трансакцій
 //в залежності від типу трансакції викликає методи, які відповідають за збільшення/зменшення балансу
 // createTransaction(type, amount) {
+//   const transaction = {
+//     type,
+//     amount,
+//     id: Date.now(),
+//   };
+//   return transaction;
 // },
 //Метод приймає суму трансакції і відповідає за додавання суми до балансу.
 // deposit(amount) {
+//   this.balance += amount;
+//   const depositTransaction = this.createTransaction(
+//     amount,
+//     Transaction.DEPOSIT
+//   );
+//   this.transactions.push(depositTransaction);
 // },
+
 //Метод приймає суму трансакції і відповідає за віднімання суми до балансу.
 //Якщо amount більше ніж поточний баланс, виводимо повідомлення в консоль про те, що недостатньо коштів на рахунку [You don't have enough funds in your account] і повертаємо null
 // withdraw(amount) {
+//   if (amount > this.balance) {
+//     console.log("You don't have enough funds in your account");
+//     return null;
+//   }
+//   this.balance -= amount;
 // },
 //Метод повертає поточний баланс
 // getBalance() {
-
+//   return this.balance;
 // },
 //Метод шукає та повертає об'єкт трансакції по id
-// getTransactionDetails(idForSearch) {
-
-// },
+// getTransactionDetails(idForSearch) {},
 //Метод повертає загальну суму трансакції певного типу із всієї історії трансакцій
-// getTotalSumByType(type) {
+// getTotalSumByType(type) {},
+// };
+// account.createTransaction("deposit", 120);
+// account.createTransaction("deposit", 100);
+// account.createTransaction("withdraw", 200);
 
-//     },
-//   }
-//   account.createTransaction('deposit', 120)
-//   account.createTransaction('deposit', 100)
-//   account.createTransaction('withdraw', 200)
-
-//   console.log('balance', account.balance)
-//   console.log('transactions', account.transactions)
-//   console.log('getTotalSumByType', account.getTotalSumByType('withdraw'))
-//   console.log('getTransactionDetails', account.getTransactionDetails(2))
+// console.log("balance", account.balance);
+// console.log("transactions", account.transactions);
+//   console.log("getTotalSumByType", account.getTotalSumByType("withdraw"));
+//   console.log("getTransactionDetails", account.getTransactionDetails(2));
 // }
 
 //=========================ClassWork=======================//
@@ -414,6 +429,23 @@
 
 // constValue();
 
+//  Напишите функцию для хранения скидки.Функция возвращает
+//другую функцию, которая принимает сумму покупки
+//и возвращает финальную сумму с сохраненной скидкой.
+
+// function discountValue(discount) {
+//   return function totalPrice(price) {
+//     console.log(price - price * discount);
+//     return price - price * discount;
+//   };
+// }
+
+// const discount10 = discountValue(0.1);
+// discount10(500);
+
+// const discount20 = discountValue(0.2);
+// discount20(1000);
+
 // 4. Виправте помилки, щоб код працював
 // const product = {
 //     price: 5000,
@@ -445,6 +477,7 @@
 
 // Добавь метод getInfo(), который возвращает строку:
 // `Пользователю ${} ${} лет и у него ${} публикаций.`
+
 // const User = function ({ userName, age, numbersOfPost } = {}) {
 // 	this.userName = userName;
 // 	this.age = age;
@@ -458,23 +491,6 @@
 // const mike = new User({ userName: "Mike", age: 18, numbersOfPost: 25 });
 // mike.getInfo();
 
-//  Напишите функцию для хранения скидки.Функция возвращает
-//другую функцию, которая принимает сумму покупки
-//и возвращает финальную сумму с сохраненной скидкой.
-
-// function discountValue(discount) {
-//   return function totalPrice(price) {
-//     console.log(price - price * discount);
-//     return price - price * discount;
-//   };
-// }
-
-// const discount10 = discountValue(0.1);
-// discount10(500);
-
-// const discount20 = discountValue(0.2);
-// discount20(1000);
-
 //=========================HomeTasks=======================//
 
 // 10. Напиши функцию конструктор Storage который создаёт объекты
@@ -486,10 +502,92 @@
 //addItems(item) - получает новый товар и добавляет его к текущим
 //removeItem(item) - плучает товар и, если он есть, удаляет его из текущих
 
-// 11. Напиши класс Client котрорый создает объект
+//=======непрацюючий вар
+
+// const Storage = function (items) {
+//   this.items = items;
+
+//   this.getItems()  = function () {
+//     return this.items;
+//   };
+
+//   this.addItems(item)  = function () {
+//     this.items.push(item);
+//   };
+
+//   this.removeIte(item)  = function () {
+//     for (let el of this.items) {
+//       if (el === item) {
+//         return this.items.splice(1, this.items.indexOf(el));
+//       }
+//     }
+//   };
+// };
+
+// const consoleStorage = new Storage(["boots", "t-shirts"]);
+// console.log(consoleStorage.getItems());
+// console.log(consoleStorage.addItem("skirt"));
+// console.log(consoleStorage.removeItem("boots"));
+
+//=======працюючий вар
+
+//class Storage {
+//   constructor(items) {
+//     this.items = items;
+//   }
+
+//   getItems() {
+//     return this.items;
+//   }
+
+//   addItem(...item) {
+//     this.items.push(...item);
+//   }
+
+//   removeItem(item) {
+//     for (let el of this.items) {
+//       if (el === item) {
+//         return this.items.splice(1, this.items.indexOf(el));
+//       }
+//     }
+//   }
+// }
+
+// const consoleStorage = new Storage(["boots", "t-shirts"]);
+// console.log(consoleStorage.getItems());
+// console.log(consoleStorage.addItem("skirt"));
+// console.log(consoleStorage.removeItem("boots"));
+
+// 11. Напиши класс Client который создает объект
 //со свойствами login email
 //Объяви приватные свойства #login #email,
 //доступ к которым сделай через геттер и сеттер login email
+
+// class Client {
+//   #login;
+//   #email;
+
+//   constructor({ login, email }) {
+//     this.#login = login;
+//     this.#email = email;
+//   }
+
+//   get login() {
+//     return this.#login;
+//   }
+
+//   set login(newLogin) {
+//     this.#login = newLogin;
+//   }
+
+//   get email() {
+//     return this.#email;
+//   }
+
+//   set email(newEmail) {
+//     this.#email = newEmail;
+//   }
+// }
 
 // 12. Напиши класс Notes который управляет коллекцией заметок в
 //свойстве items.
@@ -499,6 +597,39 @@
 //Добавь методы addNote(note), removeNote(text)
 //updatePriority(text, newPriority)
 
+// class Notes {
+//     static Priopity = {
+//         LOW: "low",
+//         HIGH: "high",
+//     }
+
+// constructor({ text, priority })
+// {
+//     this.text = text;
+//     this.priority = priority;
+// }
+
+//     constructor({ items })
+//     {
+//         this.items = items;
+//     }
+
+//     addNote(note) {
+//         this.items.push(note);
+//     }
+//     removeNote(text);
+//     updatePriority(text, newPriority);
+// }
+
+// const firstNote = new Notes({});
+
+// firstNote.addNote({
+//     text: "This is my first note",
+//     priority: Notes.Priopity.LOW,
+// })
+
+// Що мають робити інші методи???
+
 // 13.
 // Создай класс для калькулятора, который имеет следующие методы:
 // метод number, который принимает начальное значение для последующих операций
@@ -507,9 +638,41 @@
 // объект класса принимает число и может проводить с ним
 // последовательные операции в виде цепочки
 
+// ??????????????? AAAAAAAAAAAAAAAAAAAAAAAA
+
+// class Calculator {
+//   constructor(number) {
+//     this.number = number;
+//   }
+//   add() {
+//     return (this.number += number);
+//   }
+//   getResult() {
+//     return total;
+//   }
+// }
+
 //14.
 // Создать класс Worker у которого есть свойства name, age, salary.
 //У класса Worker есть метод getSalary.
 //Создать класс TopLevelWorker у которого есть свойство hierarchyLevel
 //и который наследует класс Worker, добавляя метод getHierarchyLevel
 //Реализовать задачу с помощью ES5 прототипов и ES6 классов
+
+// class Worker {
+//   constructor({ name, age, salary }) {
+//     this.name = name;
+//     this.age = age;
+//     this.salary = salary;
+//   }
+//     getSalary()
+// }
+
+// class TopLevelWorker extends Worker {
+//     constructor({hierarchyLevel, name, age, salary }) {
+//         super(name, age, salary );
+//         this.hierarchyLevel = hierarchyLevel;
+//     }
+
+//     getHierarchyLevel()
+// }
