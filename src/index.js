@@ -1,15 +1,22 @@
 import "./styles/normalize.css";
 import "./styles/index.css";
-import { getAllProducts, getProductByID } from "./requests/products";
+import {
+	getAllProducts,
+	getProductByID,
+	createNewProduct,
+} from "./requests/products";
 
 import {
-  getMarkUpAllProducts,
-  getMarkUpProduct,
+	getMarkUpAllProducts,
+	getMarkUpProduct,
+	getMarkUpNewProduct,
 } from "./services/markupService";
 const ref = {
-  allProducts: document.querySelector("#allProducts"),
-  singleProductForm: document.querySelector("#singleProductForm"),
-  singleProduct: document.querySelector("#singleProduct"),
+	allProducts: document.querySelector("#allProducts"),
+	singleProductForm: document.querySelector("#singleProductForm"),
+	singleProduct: document.querySelector("#singleProduct"),
+	newProductForm: document.querySelector("#newProduct"),
+	newProductSection: document.querySelector("#newProductSection"),
 };
 
 // getAllProducts().then(({ data: { products } }) => {
@@ -17,13 +24,30 @@ const ref = {
 // 	ref.allProducts.insertAdjacentHTML("beforeend", markUp);
 // });
 
-const onFormByIDSubmit = (evt) => {
-  evt.preventDefault();
-  const id = evt.target.elements.id.value;
-  getProductByID(id).then(({ data }) => {
-    const markUp = getMarkUpProduct(data);
-    ref.singleProduct.innerHTML = markUp;
-  });
+// const onFormByIDSubmit = (evt) => {
+// 	evt.preventDefault();
+// 	const id = evt.target.elements.id.value;
+// 	getProductByID(id).then(({ data }) => {
+// 		const markUp = getMarkUpProduct(data);
+// 		ref.singleProduct.innerHTML = markUp;
+// 	});
+// };
+
+// ref.singleProductForm.addEventListener("submit", onFormByIDSubmit);
+
+const onFormBySubmitNewProduct = (evt) => {
+	evt.preventDefault();
+
+	const title = evt.target.elements.title.value;
+	const description = evt.target.elements.description.value;
+	const price = evt.target.elements.price.value;
+
+	const newProduct = { title, description, price };
+
+	createNewProduct(newProduct).then(({ data }) => {
+		const markUp = getMarkUpNewProduct(data);
+		ref.newProductSection.innerHTML = markUp;
+	});
 };
 
-ref.singleProductForm.addEventListener("submit", onFormByIDSubmit);
+ref.newProductForm.addEventListener("submit", onFormBySubmitNewProduct);
