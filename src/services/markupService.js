@@ -33,3 +33,6 @@ export const getMarkUpNewProduct = ({ description, id, price, title }) => {
     <p>${price}</p>
     </li>`;
 };
+
+
+
