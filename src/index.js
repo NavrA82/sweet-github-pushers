@@ -1,24 +1,24 @@
 import "./styles/normalize.css";
 import "./styles/index.css";
 import {
-  getAllProducts,
-  getProductByID,
-  createNewProduct,
-  deleteProduct,
+	getAllProducts,
+	getProductByID,
+	createNewProduct,
+	deleteProduct,
 } from "./requests/products";
 
 import {
-  getMarkUpAllProducts,
-  getMarkUpProduct,
-  getMarkUpNewProduct,
+	getMarkUpAllProducts,
+	getMarkUpProduct,
+	getMarkUpNewProduct,
 } from "./services/markupService";
 const ref = {
-  allProducts: document.querySelector("#allProducts"),
-  singleProductForm: document.querySelector("#singleProductForm"),
-  singleProduct: document.querySelector("#singleProduct"),
-  newProductForm: document.querySelector("#newProduct"),
-  newProductSection: document.querySelector("#newProductSection"),
-  deletionProductForm: document.querySelector("#deletionProductForm"),
+	allProducts: document.querySelector("#allProducts"),
+	singleProductForm: document.querySelector("#singleProductForm"),
+	singleProduct: document.querySelector("#singleProduct"),
+	newProductForm: document.querySelector("#newProduct"),
+	newProductSection: document.querySelector("#newProductSection"),
+	deletionProductForm: document.querySelector("#deletionProductForm"),
 };
 
 // task 1
@@ -59,15 +59,15 @@ const ref = {
 
 // task 4
 const onDeletionFormSubmit = (evt) => {
-  evt.preventDefault();
-  const id = evt.target.elements.deletionId.value;
-  deleteProduct(id)
-    .then(() => {
-      alert(`SUCCESS!`);
-    })
-    .catch(() => {
-      alert(`ERROR!`);
-    });
+	evt.preventDefault();
+	const id = evt.target.elements.deletionId.value;
+	deleteProduct(id)
+		.then(() => {
+			alert(`SUCCESS!`);
+		})
+		.catch(() => {
+			alert(`ERROR!`);
+		});
 };
 
 ref.deletionProductForm.addEventListener("submit", onDeletionFormSubmit);
